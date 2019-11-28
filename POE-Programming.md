@@ -5,7 +5,7 @@
   
 * Make sure the cables are plugged in according to the diagram below
 
-![wiring diagram](http://chrisandjimcim.com/wp-content/uploads/2017/07/3-Cortex-Wiring-Clawbot.png)
+![wiring diagram](wiring-diagram.png)
 
 * In robotc, at the top click on `Robot` > `Motors and Sensors Setup`  
 * Go through the `Motors`, `Analog`, and `Digital` tabs and name and assign ports appropriately. Select `Ok` to close window  
@@ -34,7 +34,7 @@ ___
 
 ### Problem 3
 
-TIP: Make sure the potentiometer is at zero before running this program
+>**Notice**: Make sure the potentiometer is at zero before running this program
 
 * Turn the left motor on at half speed CW. Wait until the potentiometer is turned to 1500
 * Stop the left motor and turn on the right motor at half speed CW. Wait until the light sensor is covered
