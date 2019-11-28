@@ -5,4 +5,5 @@ Welcome to my github pages website
 
 ## Websites
 
-* link:POE-Programming.html[POE Programming instructions]
+* [POE Programming instructions](link:POE-Programming.md)
+  

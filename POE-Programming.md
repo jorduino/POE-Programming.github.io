@@ -1,20 +1,20 @@
 
-= PLTW Programming  
+# PLTW Programming  
 
-== Motors and sensor setup  
+## Motors and sensor setup  
   
 * Make sure the cables are plugged in according to the diagram below
 
-image:http://chrisandjimcim.com/wp-content/uploads/2017/07/3-Cortex-Wiring-Clawbot.png[wiring diagram]
+![wiring diagram](http://chrisandjimcim.com/wp-content/uploads/2017/07/3-Cortex-Wiring-Clawbot.png)
 
 * In robotc, at the top click on `Robot` > `Motors and Sensors Setup`  
 * Go through the `Motors`, `Analog`, and `Digital` tabs and name and assign ports appropriately. Select `Ok` to close window  
 * Before writing any code, click `Save As` and name the file '\<last name> template'
 * Save on your desktop and upload to google drive
   
-== Basic programming  
+## Basic programming  
   
-=== Problem 1  
+### Problem 1  
 
 * Turn the left motor on at half speed CW. Wait 1 second  
 * Stop the left motor and turn on the right motor at half speed CW. Wait 1 second
