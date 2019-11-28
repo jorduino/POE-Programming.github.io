@@ -1,14 +1,12 @@
-++++
-<link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
-++++
-
-:icons: font
 
 = PLTW Programming  
 
 == Motors and sensor setup  
   
-* Make sure the cables are plugged in according to the diagram below image:http://chrisandjimcim.com/wp-content/uploads/2017/07/3-Cortex-Wiring-Clawbot.png[wiring diagram]
+* Make sure the cables are plugged in according to the diagram below
+
+image:http://chrisandjimcim.com/wp-content/uploads/2017/07/3-Cortex-Wiring-Clawbot.png[wiring diagram]
+
 * In robotc, at the top click on `Robot` > `Motors and Sensors Setup`  
 * Go through the `Motors`, `Analog`, and `Digital` tabs and name and assign ports appropriately. Select `Ok` to close window  
 * Before writing any code, click `Save As` and name the file '\<last name> template'
