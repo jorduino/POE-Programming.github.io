@@ -180,7 +180,7 @@ Same as problem 1, but use a function named `motorloop` and loop forever
 
 ### Problem 17
 
-Combine problems 15 and 16: use a function named `motorloop` and `loopcount` as a variable name, and only loop 5 times
+Same as problem 1, but use a function named `motorloop` and a variable named `loopcount` and loop 5 times
 
 ## Putting it all Together
 
