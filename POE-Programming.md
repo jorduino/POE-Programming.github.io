@@ -1,9 +1,9 @@
 # PLTW Programming
 
-<details>
-    <summary>Table of Contents</summary>
+## Table of contents
 
 - [PLTW Programming](#pltw-programming)
+  - [Table of contents](#table-of-contents)
   - [Motors and Sensor Setup](#motors-and-sensor-setup)
   - [Basic Programming](#basic-programming)
     - [Problem 1](#problem-1)
@@ -28,8 +28,6 @@
     - [Problem 17](#problem-17)
   - [Putting it all Together](#putting-it-all-together)
     - [Problem 18](#problem-18)
-
-</details>
 
 ## Motors and Sensor Setup
   
