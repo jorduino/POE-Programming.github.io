@@ -3,18 +3,95 @@
 <head>
     <script src="peopleAtTables.js"></script>
     <script type="text/javascript">
-        function doit(){
+        function doit() {
             let n = Math.round(document.getElementById("input").value)
-            document.getElementById("output").innerHTML=JSON.stringify(checkRings(n))
+            let raw = checkRings(n);
+            let table = raw.table;
+            let workers = raw.seatingOrderThatCouldBeSolved;
+            let nonWorkers = raw.orderThatCouldntBeSolved;
+
+            let tableHTML = `<tbody>
+                <tr>
+                    <th>Table configuration</th>
+                    <th>Seating configurations that are solvable</th>
+                    <th>Seating configurations that are <u>NOT</u> solvable</th>
+                </tr>
+                <tr>
+                    <td>${table}</td>
+                    <td>${workers[0] ? workers[0].join(",") : "none"}</td>
+                    <td>${nonWorkers[0] ? nonWorkers[0].join(",") : "none"}</td>
+                </tr>`;
+            ;
+            for (i = 1; i < Math.max(workers.length, nonWorkers.length); i++) {
+                if (workers[i] || nonWorkers[i]) {
+                    tableHTML += `<tr><td></td><td>`;
+
+                    if (workers[i]) {
+                        tableHTML += workers[i].join(",")
+                    }
+                    tableHTML += `</td><td>`;
+                    if (nonWorkers[i]) {
+                        tableHTML += nonWorkers[i].join(",")
+                    }
+
+                    tableHTML += `</td></tr>`;
+                }
+            }
+            document.getElementById("table").innerHTML = tableHTML;
         }
     </script>
+    <style type=text/css>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 700px;
+            min-width: 400px;
+            text-align: center;
+        }
+
+        caption {
+            caption-side: bottom;
+            font-weight: bold;
+            font-style: italic;
+            margin: 4px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid gray;
+        }
+
+        th,
+        td {
+            height: 24px;
+            padding: 4px;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: cornflowerblue;
+        }
+
+        .rowtitle {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
     <p>input n (small integers only) and hit enter</p>
     <input type="text" name="" id="input">
     <input type="button" value="Enter" onclick="doit()">
-    <p id="output"></p>
+    <table id="table">
+        <tbody>
+            <tr>
+                <th>Table configuration</th>
+                <th>Seating configurations that are solvable</th>
+                <th>Seating configurations that are <u>NOT</u> solvable</th>
+            </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>
