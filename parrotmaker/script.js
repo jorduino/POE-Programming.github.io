@@ -1,5 +1,4 @@
 let input;
-let maxVal=8;
 function Main() {
 
     function tDist(x1, y1, x2, y2) {
@@ -14,7 +13,7 @@ function Main() {
         temp = [];
         for (let j = 0; j < input[i].length; j++) {
             if (input[i][j] === '') {
-                let minDist = maxVal-1;
+                let minDist = Infinity;
 
                 for (let k = 0; k < input.length; k++) {
                     for (let l = 0; l < input[k].length; l++) {
@@ -36,7 +35,8 @@ function Main() {
 
     for (let i = 0; i < input.length; i++) {
         for (let j = 0; j < input[i].length; j++) {
-            let o = document.getElementById('invert').checked?maxVal-output[i][j]:output[i][j]+1;
+            let o = document.getElementById('invert').checked?8-(output[i][j]%8):(output[i][j]%8)+1;
+            console.log(o)
             output[i][j] = o > 0 && o < 8 ? ":parrotwave" + o + ":" : ":parrotsleep:"
         }
     }
