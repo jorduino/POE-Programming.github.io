@@ -1,31 +1,63 @@
 let input;
 let results = [];
+let raw = [];
+let fileRead = false;
+
 function Main() {
-	let formFile = filein.files[0]
-	// Papa.parse(filein.files[0], {
-	//     complete: function(res) {
-	//         results=res;
-	//     }
-	// });    
+	let formFile = filein.files[0];
 	Papa.parse(formFile, {
 		worker: true,
-		// header: true,
 		step: function (row) {
-			results.push(row.data)
-			console.log("row:" + row.data)
+			fileRead = false;
+			raw.push(row.data)
 		},
 		complete: generateTable
 	});
-
-	// let keys = [];
-
 }
-
+function restrictTimes() {
+	if (restrict.checked && fileRead) {
+		results = [...raw];
+		let keys = results[0];
+		let tableHeader = arrayToHead(keys);
+		results.shift()
+		for (let i = 0; i < results.length - 1; i++) {
+			if (new Date(results[i][0]) > new Date(endTime.value) || new Date(results[i][0]) < new Date(startTime.value)) {
+				results.splice(i, 1);
+				i--;
+			}
+		}
+		tableBody = array2DToRows(formatData(results))
+		output.innerHTML = `
+			<table>
+				<tHead>
+					${tableHeader}
+				</thead>
+				<tbody>
+					${tableBody}
+				</tbody>
+			</table>
+    `
+	} else {
+		generateTable();
+	}
+}
+function formatData(data) {
+	for (let i = 0; i < data.length; i++) {
+		row = data[i];
+		row[0] = new Date(row[0]).toLocaleString();
+		if (row[0] == "Invalid Date") {
+			data.splice(i, 1);
+		}
+	}
+	return data
+}
 function generateTable() {
+	fileRead = true;
+	results = [...raw];
 	let keys = results[0];
-	let tableHeader = arrayToRow(keys);
+	let tableHeader = arrayToHead(keys);
 	results.shift()
-	tableBody = array2DToRows(results)
+	tableBody = array2DToRows(formatData(results))
 
 	output.innerHTML = `
     <table>
@@ -38,10 +70,10 @@ function generateTable() {
     </table>
     `
 }
-function array2DToRows(arr2D){
+function array2DToRows(arr2D) {
 	let rows = "";
-	for(el of arr2D){
-		rows+=arrayToRow(el)
+	for (el of arr2D) {
+		rows += arrayToRow(el)
 	}
 	return rows;
 }
@@ -49,6 +81,13 @@ function arrayToRow(arr) {
 	let row = "<tr>";
 	for (el of arr) {
 		row += "<td>" + el + "</td>"
+	}
+	return row + "</tr>";
+}
+function arrayToHead(arr) {
+	let row = "<tr>";
+	for (el of arr) {
+		row += "<th>" + el + "</th>"
 	}
 	return row + "</tr>";
 }
