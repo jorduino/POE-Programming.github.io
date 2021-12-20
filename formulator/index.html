@@ -53,15 +53,15 @@
 </head>
 
 <body>
+    <input type="button" value="Select Random Row" style="display:none;" onclick="selRandom()" id="randButton">
     <input type="file" onchange="Main()" id="filein">
     <input type="checkbox" name="restrict" id="restrict" onchange="restrictTimes()">
     <a>Restrict Times?</a>
-    <div style id="times">
-        <p>start:</p>
-        <input type="datetime-local" id="startTime" onchange="restrictTimes()">
-        <p>stop:</p>
-        <input type="datetime-local" id="endTime" onchange="restrictTimes()">
-    </div>
+    <p style="display:inline-block">start:</p>
+    <input type="datetime-local" id="startTime" onchange="restrictTimes()">
+    <p style="display:inline-block">stop:</p>
+    <input type="datetime-local" id="endTime" onchange="restrictTimes()">
+    <p id="output2"></p>
     <div id="output"></div>
 </body>
 
