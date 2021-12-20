@@ -2,8 +2,10 @@ let input;
 let results = [];
 let raw = [];
 let fileRead = false;
+let randIndex = -1;
 
 function Main() {
+	randButton.style.display = "";
 	let formFile = filein.files[0];
 	Papa.parse(formFile, {
 		worker: true,
@@ -14,6 +16,15 @@ function Main() {
 		complete: generateTable
 	});
 }
+function selRandom() {
+	if (results.length > 0) {
+		randIndex = Math.floor(Math.random() * results.length);
+		output2.innerHTML = "The winner is: " + results[randIndex][2];
+	} else {
+		output2.innerHTML = "I don't see anything to select. If this is an error, please let me know.";
+	}
+}
+
 function restrictTimes() {
 	if (restrict.checked && fileRead) {
 		results = [...raw];
