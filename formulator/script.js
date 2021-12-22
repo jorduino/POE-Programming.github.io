@@ -1,22 +1,10 @@
 let input;
 let results = [];
 let raw = [];
-let fileRead = false;
+let fileDone = false;
 let randIndex = -1;
 
-function Main() {
-	randButton.style.display = "";
-	let formFile = filein.files[0];
-	Papa.parse(formFile, {
-		worker: true,
-		step: function (row) {
-			fileRead = false;
-			raw.push(row.data)
-		},
-		complete: generateTable
-	});
-}
-function selRandom() {
+function randomClicked() {
 	if (results.length > 0) {
 		randIndex = Math.floor(Math.random() * results.length);
 		output2.innerHTML = "The winner is: " + results[randIndex][2];
@@ -25,61 +13,64 @@ function selRandom() {
 	}
 }
 
-function restrictTimes() {
-	if (restrict.checked && fileRead) {
-		results = [...raw];
-		let keys = results[0];
-		let tableHeader = arrayToHead(keys);
-		results.shift()
-		for (let i = 0; i < results.length - 1; i++) {
-			if (new Date(results[i][0]) > new Date(endTime.value) || new Date(results[i][0]) < new Date(startTime.value)) {
-				results.splice(i, 1);
-				i--;
-			}
-		}
-		tableBody = array2DToRows(formatData(results))
-		output.innerHTML = `
-			<table>
-				<tHead>
-					${tableHeader}
-				</thead>
-				<tbody>
-					${tableBody}
-				</tbody>
-			</table>
-    `
-	} else {
-		generateTable();
+function fileChanged() {
+	randButton.style.display = "";
+	let formFile = filein.files[0];
+	Papa.parse(formFile, {
+		worker: true,
+		step: stepFunction,
+		complete: completeFunction
+	});
+}
+
+function stepFunction(row) {
+	fileDone = false;
+	raw.push(row.data);
+}
+
+function completeFunction() {
+	fileDone = true;
+	results = [...raw];
+	generateTable();
+}
+
+function restrictClicked() {
+	results = [...raw]
+	if (restrict.checked && fileDone) {
+		results = raw.filter(row => new Date(row[0]) < new Date(endTime.value) && new Date(row[0]) > new Date(startTime.value))
 	}
+	generateTable();
 }
 function formatData(data) {
-	for (let i = 0; i < data.length; i++) {
-		row = data[i];
+	return data.map(row => {
 		row[0] = new Date(row[0]).toLocaleString();
-		if (row[0] == "Invalid Date") {
-			data.splice(i, 1);
-		}
-	}
-	return data
+		return row;
+	}).filter(row =>
+		row[0] != "Invalid Date" && selectColumn(row.slice(1))
+	)
 }
-function generateTable() {
-	fileRead = true;
-	results = [...raw];
-	let keys = results[0];
-	let tableHeader = arrayToHead(keys);
-	results.shift()
-	tableBody = array2DToRows(formatData(results))
+function jsonToTable(raw) {
+	let json = [...raw];
 
-	output.innerHTML = `
+	return `
     <table>
         <tHead>
-            ${tableHeader}
+            ${arrayToHead(json.shift())}
         </thead>
         <tbody>
-            ${tableBody}
+            ${array2DToRows(formatData(json))}
 		</tbody>
     </table>
     `
+}
+
+function selectColumn(array, column) {
+	return array.map(value => value[column]);
+}
+
+function generateTable() {
+	fileDone = true;
+	output.innerHTML = jsonToTable(results);
 }
 function array2DToRows(arr2D) {
 	let rows = "";
@@ -102,4 +93,4 @@ function arrayToHead(arr) {
 	}
 	return row + "</tr>";
 }
-   // Object.keys(results[0])
+	// Object.keys(results[0])
