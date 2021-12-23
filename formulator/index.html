@@ -1,68 +1,196 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
+        integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g=="
+        crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
+        integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"
         integrity="sha512-EbdJQSugx0nVWrtyK3JdQQ/03mS3Q1UiAhRtErbwl1YL/+e2hZdlIcSURxxh7WXHTzn83sjlh2rysACoJGfb6g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.min.js"
         integrity="sha512-W/mRQs9ZSFpF14X/4aRgQss7+HRsVXsph+Y6DGLeqIqK8IpO+rQz0ISUEXkTeeKF7tivoGv+Ru7SpocS/1qahg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>CSV Parser</title>
-    <script src="./script.js"></script>
-    <Style>
-        html {
-            font-family: sans-serif;
-        }
-
-        table {
-            border-collapse: collapse;
-            border: 2px solid rgb(200, 200, 200);
-            letter-spacing: 1px;
-            font-size: 0.8rem;
-        }
-
-        td,
-        th {
-            border: 1px solid rgb(190, 190, 190);
-            padding: 10px 20px;
-        }
-
-        th {
-            background-color: rgb(235, 235, 235);
-        }
-
-        td {
-            text-align: center;
-        }
-
-        tr:nth-child(even) td {
-            background-color: rgb(250, 250, 250);
-        }
-
-        tr:nth-child(odd) td {
-            background-color: rgb(245, 245, 245);
-        }
-
-        caption {
-            padding: 10px;
-        }
-    </Style>
 </head>
 
 <body>
     <input type="button" value="Select Random Row" style="display:none;" onclick="randomClicked()" id="randButton">
     <input type="file" onchange="fileChanged()" id="filein">
-    <input type="checkbox" name="restrict" id="restrict" onchange="restrictClicked()">
-    <a>Restrict Times?</a>
-    <p style="display:inline-block">start:</p>
-    <input type="datetime-local" id="startTime" onchange="restrictClicked()">
-    <p style="display:inline-block">stop:</p>
-    <input type="datetime-local" id="endTime" onchange="restrictClicked()">
     <span id="random"></span><span id="tally"></span>
-    <div id="output"></div>
+    <div id="myGrid" style="height: 700px; width:100%; display: none;" class="ag-theme-balham"></div>
+
+    <script type="text/javascript" charset="utf-8">
+        data = [];
+        const columnDefs = [];
+
+        function CustomDateComponent() {}
+
+        CustomDateComponent.prototype.init = function (params) {
+            this.params = params;
+            this.eGui = document.createElement('div');
+            this.eInput = document.createElement('input');
+            this.eGui.appendChild(this.eInput);
+            jQuery(this.eInput).datetimepicker({
+                mask: true, // '9999/19/39 29:59' - digit is the maximum possible for a cell
+                onChangeDateTime: this.onDateChanged.bind(this)
+            });
+        }
+
+        CustomDateComponent.prototype.onDateChanged = function (currentDateTime) {
+            this.date = currentDateTime;
+            this.params.onDateChanged();
+        };
+
+        CustomDateComponent.prototype.getGui = function () {
+            return this.eGui;
+        }
+
+        CustomDateComponent.prototype.getDate = function () {
+            return this.date;
+        }
+
+        CustomDateComponent.prototype.setDate = function (date) {
+            // implement this to make it work with floating filters...
+
+        }
+
+        CustomDateComponent.prototype.destroy = function () {
+            jQuery(this.eInput).datetimepicker('destroy');
+        }
+        const gridOptions = {
+
+            defaultColDef: {
+                sortable: true,
+                filter: 'agTextColumnFilter',
+                resizable: true,
+                editable: false
+            },
+            columnTypes: {
+                dateColumn: {
+                    filter: 'datetimeFilter',
+
+                    suppressMenu: false
+                }
+            },
+            components: {
+                agDateInput: CustomDateComponent
+            },
+            columnDefs: columnDefs,
+            enableSorting: true,
+            enableFilter: true,
+            pagination: true
+        };
+
+        const eGridDiv = document.querySelector('#myGrid');
+
+        new agGrid.Grid(eGridDiv, gridOptions);
+
+        function dynamicallyConfigureColumnsFromObject(anObject) {
+            const colDefs = gridOptions.api.getColumnDefs();
+            colDefs.length = 0;
+            const keys = Object.keys(anObject)
+            keys.forEach(key => {
+                if (key == "Submission Timestamp") {
+                    return colDefs.push({
+                        headerName: "Date",
+                        field: "Submission Timestamp",
+                        width: 300,
+                        filter: 'agDateColumnFilter',
+                        filterParams: {
+                            comparator: function (filterLocalDate, cellValue) {
+
+                                filterLocalDate.setMilliseconds(0);
+                                cellValue.setMilliseconds(0);
+                                let filterBy = filterLocalDate.getTime();
+                                let filterMe = cellValue.getTime();
+                                if (filterBy == filterMe) {
+                                    return 0;
+                                }
+
+                                if (filterMe < filterBy) {
+                                    return -1;
+                                }
+
+                                if (filterMe > filterBy) {
+                                    return 1;
+                                }
+                            }
+                        }
+                    })
+                } else {
+                    return colDefs.push({
+                        field: key
+                    })
+                }
+            });
+            gridOptions.api.setColumnDefs(colDefs);
+        }
+
+        let filterParams = {
+            comparator: function (filterLocalDateAtMidnight, cellValue) {
+                var dateAsString = cellValue;
+                if (dateAsString == null) return -1;
+                var dateParts = dateAsString.split('/');
+                var cellDate = new Date(dateAsString);
+
+                if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+                    console.log(filterLocalDateAtMidnight)
+                    return 0;
+                }
+
+                if (cellDate < filterLocalDateAtMidnight) {
+                    console.log(filterLocalDateAtMidnight)
+
+                    return -1;
+                }
+
+                if (cellDate > filterLocalDateAtMidnight) {
+                    console.log(filterLocalDateAtMidnight)
+
+                    return 1;
+                }
+            },
+            browserDatePicker: true,
+            minValidYear: 2000,
+            maxValidYear: 2021,
+        }
+
+        function fileChanged() {
+            //randButton.style.display = "";
+            let formFile = filein.files[0];
+            data = [];
+            Papa.parse(formFile, {
+                worker: true,
+                header: true,
+                step: stepFunction,
+                complete: completeFunction
+            });
+        }
+
+        function stepFunction(row) {
+            data.push(row.data);
+        }
+
+        function completeFunction() {
+            for (row of data) {
+                row["Submission Timestamp"] = new Date(row["Submission Timestamp"])
+            }
+            myGrid.style.display = "";
+
+            dynamicallyConfigureColumnsFromObject(data[0])
+            gridOptions.api.setRowData(data);
+
+        }
+    </script>
 </body>
 
 </html>
