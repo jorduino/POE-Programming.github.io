@@ -23,13 +23,13 @@
 </head>
 
 <body>
-    <input type="button" value="Select Random Row" style="display:none;" onclick="randomClicked()" id="randButton">
-    <input type="file" onchange="fileChanged()" id="filein">
-    <span id="random"></span><span id="tally"></span>
+    <input type="file" onchange="fileChanged()" id="filein" multiple>
+    <input type="button" value="Select Random Entry" style="display:none;" onclick="randomClicked()" id="randButton">
+    <span id="randomOut"></span>
     <div id="myGrid" style="height: 700px; width:100%; display: none;" class="ag-theme-balham"></div>
 
     <script type="text/javascript" charset="utf-8">
-        data = [];
+        let data = [];
         const columnDefs = [];
 
         function CustomDateComponent() {}
@@ -92,12 +92,28 @@
 
         const eGridDiv = document.querySelector('#myGrid');
 
+        function randomClicked() {
+            randomList = []
+            gridOptions.api.forEachNodeAfterFilter(raw => {
+                let row = raw.data
+                let lines = Number(row['SELECT "#" OF LINE(S) ADDED']) || 0;
+                let nbas = Number(row['Next Best Action Offered']) || 0;
+                let npss = Number(row['"#"YES TO NPS" (PG & NPS= 1 ENTRY) ']) || 0;
+                let entries = lines + nbas + npss
+                for (let i = 0; i < entries; i++) {
+                    randomList.push(row['Slack Full Name'])
+                }
+            })
+            let random = randomList[Math.floor(Math.random() * randomList.length)];
+            randomOut.innerHTML = "Winner: " + random + "!"
+        }
+
         new agGrid.Grid(eGridDiv, gridOptions);
 
-        function dynamicallyConfigureColumnsFromObject(anObject) {
+        function dynamicallyConfigureColumnsFromKeys(keys) {
+            keys = [...new Set(keys)];
             const colDefs = gridOptions.api.getColumnDefs();
             colDefs.length = 0;
-            const keys = Object.keys(anObject)
             keys.forEach(key => {
                 if (key == "Submission Timestamp") {
                     return colDefs.push({
@@ -165,28 +181,42 @@
         }
 
         function fileChanged() {
-            //randButton.style.display = "";
+            randButton.style.display = "";
             let formFile = filein.files[0];
             data = [];
-            Papa.parse(formFile, {
-                worker: true,
-                header: true,
-                step: stepFunction,
-                complete: completeFunction
-            });
+            parseFiles(filein.files)
+        }
+        const parseFiles = files => {
+            filesData = []
+            keys = [];
+            Promise.all([...files].map(file => new Promise((resolve, reject) => Papa.parse(file, {
+                    header: true,
+                    complete: resolve, // Resolve each promise
+                    error: reject
+                }))))
+                .then(results => {
+                    results.forEach((result, index) => {
+                        filesData = filesData.concat(result.data)
+                        keys = keys.concat(Object.keys(result.data[0]))
+                    });
+                    completeFunction(filesData,
+                        keys
+                    ); // now since .then() excutes after all promises are resolved, filesData contains all the parsed files.
+                })
+                .catch((err) => console.log('Something went wrong:', err))
         }
 
         function stepFunction(row) {
             data.push(row.data);
         }
 
-        function completeFunction() {
+        function completeFunction(data, keys) {
             for (row of data) {
                 row["Submission Timestamp"] = new Date(row["Submission Timestamp"])
             }
             myGrid.style.display = "";
 
-            dynamicallyConfigureColumnsFromObject(data[0])
+            dynamicallyConfigureColumnsFromKeys(keys)
             gridOptions.api.setRowData(data);
 
         }
