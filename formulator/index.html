@@ -99,7 +99,7 @@
                 let lines = Number(row['SELECT "#" OF LINE(S) ADDED']) || 0;
                 let nbas = Number(row['Next Best Action Offered']) || 0;
                 let npss = Number(row['"#"YES TO NPS" (PG & NPS= 1 ENTRY) ']) || 0;
-                let entries = lines + nbas + npss
+                let entries = lines + nbas + npss | 1;
                 for (let i = 0; i < entries; i++) {
                     randomList.push(row['Slack Full Name'])
                 }
