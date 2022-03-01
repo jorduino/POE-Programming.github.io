@@ -6,3 +6,4 @@ Welcome to my github pages website. There are not many projects hosted here, but
 
 * [Formulator](formulator)
 * [Parrotmaker](parrotmaker)
+* [MRC Calculatpr](mrccals)
