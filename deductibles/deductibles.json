@@ -1,0 +1,624 @@
+{
+	"tiers": [
+		{
+			"tier": "1",
+			"monthly": "7",
+			"warranty": "0",
+			"accidental": "10",
+			"applecare": "false",
+			"loss": "10"
+		},
+		{
+			"tier": "2",
+			"monthly": "9",
+			"warranty": "0",
+			"accidental": "49",
+			"applecare": "false",
+			"loss": "49"
+		},
+		{
+			"tier": "3",
+			"monthly": "13",
+			"warranty": "0",
+			"accidental": "99",
+			"applecare": "true",
+			"loss": "99"
+		},
+		{
+			"tier": "4",
+			"monthly": "16",
+			"warranty": "0",
+			"accidental": "99",
+			"applecare": "true",
+			"loss": "149"
+		},
+		{
+			"tier": "5",
+			"monthly": "18",
+			"warranty": "0",
+			"accidental": "99",
+			"applecare": "true",
+			"loss": "249"
+		},
+		{
+			"tier": "BYOD",
+			"monthly": "18",
+			"warranty": "0",
+			"accidental": "99",
+			"applecare": "false",
+			"loss": "249"
+		},
+		{
+			"tier": "6",
+			"monthly": "25",
+			"warranty": "0",
+			"accidental": "199",
+			"applecare": "false",
+			"loss": "499"
+		}
+	],
+	"applecare": {
+		"screen": "29",
+		"iphone": "99",
+		"ipad": "49",
+		"watch": "69"
+	},
+	"devices": {
+		"Motorola ": [
+			{
+				"name": "e6",
+				"tier": "1"
+			},
+			{
+				"name": "REVVLRY",
+				"tier": "1"
+			},
+			{
+				"name": "G7 Power",
+				"tier": "2"
+			},
+			{
+				"name": "REVVLRY+",
+				"tier": "2"
+			},
+			{
+				"name": "razr 5G",
+				"tier": "5"
+			}
+		],
+		"Microsoft ": [
+			{
+				"name": "Lumia 435"
+			},
+			{
+				"name": "Lumia 640"
+			}
+		],
+		"Samsung ": [
+			{
+				"name": "Galaxy A10e"
+			},
+			{
+				"name": "Galaxy A11"
+			},
+			{
+				"name": "Galaxy J3 Prime",
+				"tier": "1"
+			},
+			{
+				"name": "Galaxy J3 Star",
+				"tier": "1"
+			},
+			{
+				"name": "Gravity Smart",
+				"tier": "1"
+			},
+			{
+				"name": "Gravity TXT",
+				"tier": "1"
+			},
+			{
+				"name": "Gravity 2",
+				"tier": "1"
+			},
+			{
+				"name": "Gravity 3",
+				"tier": "1"
+			},
+			{
+				"name": "Gravity 3T",
+				"tier": "1"
+			},
+			{
+				"name": "J327T Prime POP",
+				"tier": "1"
+			},
+			{
+				"name": "Galaxy A20",
+				"tier": "2"
+			},
+			{
+				"name": "Galaxy A21",
+				"tier": "2"
+			},
+			{
+				"name": "Galaxy J7 Prime",
+				"tier": "2"
+			},
+			{
+				"name": "Galaxy J7 Star",
+				"tier": "2"
+			},
+			{
+				"name": "Galaxy Tab A",
+				"tier": "2"
+			},
+			{
+				"name": "Galaxy Tab E",
+				"tier": "2"
+			},
+			{
+				"name": "J727T Prime POP",
+				"tier": "2"
+			},
+			{
+				"name": "Galaxy A51 5G",
+				"tier": "3"
+			},
+			{
+				"name": "Galaxy A71 5G",
+				"tier": "3"
+			},
+			{
+				"name": "Galaxy S6",
+				"tier": "3"
+			},
+			{
+				"name": "Galaxy S7",
+				"tier": "3"
+			},
+			{
+				"name": "Galaxy Watch",
+				"tier": "3"
+			},
+			{
+				"name": "Galaxy Watch 3",
+				"tier": "3"
+			},
+			{
+				"name": "Galaxy Watch Active2",
+				"tier": "3"
+			},
+			{
+				"name": "Galaxy Note 5",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy S7 Edge",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy S8 Active",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy S8",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy S8+",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy S9",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy S9+",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy S20 FE 5G",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy Tab S6",
+				"tier": "4"
+			},
+			{
+				"name": "Galaxy Note 8",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy Note 9",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy Note 10+ 5G",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy Note20",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy Note20 Ultra 5G",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy S10",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy S10 5G",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy S10+",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy S10e",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy S20 5G",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy S20+ 5G",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy S20 Ultra 5G",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy Z Flip",
+				"tier": "5"
+			},
+			{
+				"name": "Galaxy Z Fold2 5G",
+				"tier": "6"
+			}
+		],
+		"T-Mobile ": [
+			{
+				"name": "REVVL 2"
+			},
+			{
+				"name": "REVVL 4"
+			},
+			{
+				"name": "SyncUP DRIVE 2"
+			},
+			{
+				"name": "SyncUP PETS"
+			},
+			{
+				"name": "Test Drive"
+			},
+			{
+				"name": "REVVL 2+",
+				"tier": "2"
+			},
+			{
+				"name": "REVVL 4+",
+				"tier": "2"
+			},
+			{
+				"name": "REVVL 5G",
+				"tier": "3"
+			}
+		],
+		"Timex ": [
+			{
+				"name": "Family Connect"
+			}
+		],
+		"OnePlus ": [
+			{
+				"name": "6T"
+			},
+			{
+				"name": "7T",
+				"tier": "3"
+			},
+			{
+				"name": "7 Pro",
+				"tier": "4"
+			},
+			{
+				"name": "8 5G",
+				"tier": "4"
+			}
+		],
+		"Google ": [
+			{
+				"name": "Pixel 3a"
+			},
+			{
+				"name": "Pixel 3a XL"
+			},
+			{
+				"name": "Pixel 3",
+				"tier": "4"
+			},
+			{
+				"name": "Pixel 3 XL",
+				"tier": "4"
+			},
+			{
+				"name": "Pixel 4",
+				"tier": "4"
+			},
+			{
+				"name": "Pixel 4 XL",
+				"tier": "5"
+			}
+		],
+		"Apple ": [
+			{
+				"name": "iPad 7th Gen"
+			},
+			{
+				"name": "iPad 8th Gen"
+			},
+			{
+				"name": "iPhone 6s"
+			},
+			{
+				"name": "iPhone SE"
+			},
+			{
+				"name": "Nike Watch SE"
+			},
+			{
+				"name": "Watch SE"
+			},
+			{
+				"name": "Watch Series 3",
+				"tier": "3"
+			},
+			{
+				"name": "Watch Series 5",
+				"tier": "3"
+			},
+			{
+				"name": "iPhone 6",
+				"tier": "4"
+			},
+			{
+				"name": "iPhone 6 Plus",
+				"tier": "4"
+			},
+			{
+				"name": "iPhone 6s Plus",
+				"tier": "4"
+			},
+			{
+				"name": "iPhone 7",
+				"tier": "4"
+			},
+			{
+				"name": "iPhone 7 Plus",
+				"tier": "4"
+			},
+			{
+				"name": "Watch Series 4",
+				"tier": "4"
+			},
+			{
+				"name": "Watch Series 6",
+				"tier": "4"
+			},
+			{
+				"name": "iPad Air 4",
+				"tier": "5"
+			},
+			{
+				"name": "iPad Pro 11-inch",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone 8",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone 8 Plus",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone X",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone XR",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone XS",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone XS MAX",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone 11",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone 11 Pro",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone 11 Pro Max",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone 12",
+				"tier": "5"
+			},
+			{
+				"name": "iPhone 12 Pro",
+				"tier": "5"
+			}
+		],
+		"Alcatel ": [
+			{
+				"name": "3T 8"
+			},
+			{
+				"name": "A30"
+			},
+			{
+				"name": "GO FLIP 3"
+			},
+			{
+				"name": "JOY TAB"
+			},
+			{
+				"name": "LINKZONE 2"
+			},
+			{
+				"name": "JOY TAB Kids",
+				"tier": "2"
+			}
+		],
+		"Coolpad ": [
+			{
+				"name": "Snap"
+			},
+			{
+				"name": "Surf"
+			},
+			{
+				"name": "Tasker"
+			},
+			{
+				"name": "life",
+				"tier": "2"
+			},
+			{
+				"name": "One M9",
+				"tier": "2"
+			}
+		],
+		"GEOTAB ": [
+			{
+				"name": "GO8"
+			}
+		],
+		"KonnectONE ": [
+			{
+				"name": "Moxee Signal"
+			}
+		],
+		"LG ": [
+			{
+				"name": "Aristo"
+			},
+			{
+				"name": "Aristo 2 PLUS",
+				"tier": "1"
+			},
+			{
+				"name": "Aristo 4+",
+				"tier": "1"
+			},
+			{
+				"name": "Aristo 5",
+				"tier": "1"
+			},
+			{
+				"name": "K20 Plus",
+				"tier": "1"
+			},
+			{
+				"name": "Leon",
+				"tier": "1"
+			},
+			{
+				"name": "Optimus L90",
+				"tier": "1"
+			},
+			{
+				"name": "Sentio",
+				"tier": "1"
+			},
+			{
+				"name": "G Pad 5",
+				"tier": "2"
+			},
+			{
+				"name": "K30",
+				"tier": "2"
+			},
+			{
+				"name": "K40",
+				"tier": "2"
+			},
+			{
+				"name": "K51",
+				"tier": "2"
+			},
+			{
+				"name": "F3Q, F6, L9",
+				"tier": "2"
+			},
+			{
+				"name": "Stylo 3 PLUS",
+				"tier": "2"
+			},
+			{
+				"name": "Stylo 4",
+				"tier": "2"
+			},
+			{
+				"name": "Stylo 5",
+				"tier": "2"
+			},
+			{
+				"name": "Stylo 6",
+				"tier": "2"
+			},
+			{
+				"name": "V20",
+				"tier": "2"
+			},
+			{
+				"name": "G6",
+				"tier": "3"
+			},
+			{
+				"name": "Q7+",
+				"tier": "3"
+			},
+			{
+				"name": "VELVET 5G",
+				"tier": "3"
+			},
+			{
+				"name": "G Flex",
+				"tier": "4"
+			},
+			{
+				"name": "G7",
+				"tier": "4"
+			},
+			{
+				"name": "G8",
+				"tier": "4"
+			},
+			{
+				"name": "V30",
+				"tier": "4"
+			},
+			{
+				"name": "V60",
+				"tier": "5"
+			}
+		]
+	}
+}
