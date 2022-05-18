@@ -1,0 +1,13 @@
+ <script>
+    let data;
+    fetch('https://raw.githubusercontent.com/jorduino/jorduino.github.io/master/deductibles/deductibles.json')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (d) {
+    data = d;
+  })
+  .catch(function (err) {
+    console.log(err); 
+  });
+</script>
