@@ -18,21 +18,22 @@ const pages = [
     {
         id: "crt",
         url: "http://modelt/mt3/?163&nt=radamo",
-        time: 12000
+        time: 120000
     }, {
         id: "detailed",
         url: "http://modelt/mt3/?191&nt=radamo&site=WIC",
-        time: 12000
+        time: 120000
     }, {
         id: "texnation",
         url: "http://modelt/mt3/?158",
-        time: 1000
+        time: 10000
     }, {
         id: "bubbles",
         url: "http://modelt/mt3/?154&site=WIC",
-        time: 2000
+        time: 20000
     }
 ];
+
 
 // keep track of which page is showing
 let currentPage = 0;
@@ -43,21 +44,19 @@ let frames = 0;
 // date in millis since page update
 let startDate = new Date().getTime();
 
-// 
 let loopTime = 0;
 
+function switchPage() {
 
-function changeView() {
+    currentPage = (currentPage + 1) % pages.length;
+    for (page of pages) {
 
-    for (let i = 0; i < pages.length; i++) {
-
-        pages[i].element.classList.add('hide');
+        page.element.classList.add('hide');
 
     }
 
     pages[currentPage].element.classList.remove('hide');
 
-    currentPage = (currentPage + 1) % pages.length;
 
 }
 
@@ -68,7 +67,7 @@ function loop() {
     loopTime = (new Date().getTime() - startDate) % loopLength;
     if (loopTime < oldTime) {
         startDate = new Date().getTime();
-        changeView();
+        switchPage();
         resetProgress();
     }
     setProgress(loopTime / loopLength);
