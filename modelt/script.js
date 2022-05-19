@@ -17,11 +17,13 @@ requestWakeLock();
 const pages = [
     {
         id: "crt",
-        url: "http://modelt/mt3/?163&nt=radamo",
+        url: "http://modelt/mt3/?163",
+        nt: true,
         time: 120000
     }, {
         id: "detailed",
-        url: "http://modelt/mt3/?191&nt=radamo&site=WIC",
+        url: "http://modelt/mt3/?191&site=WIC",
+        nt: true,
         time: 120000
     }, {
         id: "texnation",
@@ -45,6 +47,8 @@ let frames = 0;
 let startDate = new Date().getTime();
 
 let loopTime = 0;
+
+let nt = "";
 
 function switchPage() {
 
@@ -81,6 +85,13 @@ function setProgress(x) {
     loopProgress.value = x;
 }
 window.onload = () => {
+    let nt = prompt("Please enter your manager's NT id")
+    for (page of pages) {
+        if(page.nt){
+            page.url+="&nt="+ nt
+        }
+    }
+
     for (let i = 0; i < pages.length; i++) {
         pages[i].element = document.createElement("iframe");
         pages[i].element.src = pages[i].url;
