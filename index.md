@@ -4,6 +4,9 @@ Welcome to my github pages website. There are not many projects hosted here, but
 
 ## Websites
 
+* [Deductibles](deductibles)
 * [Formulator](formulator)
-* [Parrotmaker](parrotmaker)
+* [ModelT](modelt)
 * [MRC Calculator](mrccalc)
+* [Parrot Maker](parrotmaker)
+* [Screen Recorder](record)
