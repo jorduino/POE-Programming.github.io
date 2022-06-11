@@ -100,8 +100,10 @@
 			let autopay = autopayCheck.checked;
 			let plan = prices[planSelect.selectedIndex];
 			let lines = linesSelect.selectedIndex;
-			let current = plan.prices[lines] - (autopay ? 5 * (lines + 1) : 0);
-			let currentTotal = plan.prices[lines] + 55 - (autopay ? 5 * (lines + 2) : 0);
+			let apDiscount = autopay * Math.max(lines);
+
+			let current = plan.prices[lines] - (autopay ? apDiscount : 0);
+			let currentTotal = plan.prices[lines] + 55 - (autopay ? apDiscount + 5 : 0);
 
 			let max = maxes[plan.max].prices[lines] - (autopay ? 5 * (lines + 1) : 0);
 			let maxTotal = maxes[plan.max].prices[lines] + 35 - 5 * (lines + 2);
@@ -113,7 +115,7 @@
 			maxTotalOut.innerHTML = `MAX Plan Plus HINT w/ autopay: $${maxTotal}`
 
 			let difference = maxTotal - currentTotal;
-			let shouldSwitch = difference <= 0 ? "YES! " : difference <= 10 ? "Maybe. " : "Probably not.";
+			let shouldSwitch = difference <= 0 ? "YES! " : difference <= 10 ? "Maybe. " : "Speak to the value of increasing.";
 			let suffix =
 				"It would be " + (difference < 0 ?
 					`$${Math.abs(difference)} cheaper!` : difference == 0 ?
@@ -121,9 +123,10 @@
 					`$${Math.abs(difference)} more.`);
 
 
-			switchOut.innerHTML = lines >= 1 ? "Should they switch?<br>" + shouldSwitch + " " + suffix :
-				"This promotion requires minimum of two lines";
-			notice.innerHTML=autopay?"":"Notice: MAX discount includes adding autopay.";
+			switchOut.innerHTML = lines >= 1 ? "<h1>Should they switch?</h1><h2>" + shouldSwitch + " " + suffix + "</h2>" :
+				"<h1>This promotion requires minimum of two lines</h1>";
+
+			notice.innerHTML = autopay ? "" : "Notice: MAX discount includes adding autopay.";
 
 
 		}
@@ -154,6 +157,7 @@
 					<label class="form-check-label" for="autopayCheck">Enrolled in AutoPay?</label>
 					<input class="form-check-input" type="checkbox" value="" id="autopayCheck" onchange="calc()">
 				</div>
+
 				<div class="col">
 					<label class="form-select-label" for="planSelect">Plan Name</label>
 					<select class="form-select" id="planSelect" onchange="planChange()"></select>
@@ -162,6 +166,10 @@
 					<label class="form-select-label" for="linesSelect">Number Of Lines</label>
 					<select class="form-select" id="linesSelect" onchange="calc()"></select>
 				</div>
+			</div>
+			<hr>
+			<div class="row" id="switchOut">
+				<h1>Should they switch?</h1>
 			</div>
 			<hr>
 			<div class="row">
@@ -180,9 +188,7 @@
 					<p id="maxTotalOut">MAX Plan plus HINT</p>
 				</div>
 			</div>
-			<div class="row">
-				<h1 id="switchOut">Should they switch?</h1>
-			</div>
+
 			<div class="row">
 				<p id="notice"></p>
 			</div>
