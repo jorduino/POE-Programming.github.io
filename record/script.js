@@ -8,16 +8,13 @@ window.onload = function () {
         let stream = await recordScreen();
         let mimeType = 'video/webm';
         mediaRecorder = createRecorder(stream, mimeType);
-        let node = document.createElement("p");
-        node.textContent = "Started recording";
-        document.body.appendChild(node);
+        document.getElementById("alert").innerHTML = "Started recording";
     })
 
     stop.addEventListener('click', function () {
         mediaRecorder.stop();
-        let node = document.createElement("p");
-        node.textContent = "Stopped recording";
-        document.body.appendChild(node);
+        document.getElementById("alert").innerHTML = "Stopped recording";
+
     })
 
     async function recordScreen() {
