@@ -87,8 +87,8 @@ window.onload = function () {
 function calc() {
     let autopay = autopayCheck.checked;
     let plan = prices[planSelect.selectedIndex];
-    let lines = linesSelect.selectedIndex;
-    let apDiscount = autopay * Math.max(lines);
+    let lines = linesSelect.selectedIndex + 1;
+    let apDiscount = autopay * Math.min(lines + 1, 8) * 5;
 
     let current = plan.prices[lines] - (autopay ? apDiscount : 0);
     let currentTotal = plan.prices[lines] + 55 - (autopay ? apDiscount + 5 : 0);
@@ -122,7 +122,7 @@ function calc() {
 function updateLines() {
     let plan = prices[planSelect.selectedIndex];
     linesSelect.innerHTML = ""
-    for (i = 1; i <= plan.prices.length; i++) {
+    for (i = 2; i <= plan.prices.length; i++) {
         linesSelect.innerHTML += `<option value="${i}">${i}</option>`
     }
 }
