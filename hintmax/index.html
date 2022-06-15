@@ -1,199 +1,84 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>habjo - hintmax</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 	</script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-	</script>
-	<script>
-		let prices = [{
-				"name": "T-Mobile Essentials",
-				"soc": "TMESNTL",
-				"prices": [
-					65, 100, 120, 140, 160, 180
-				],
-				"max": 0
-			},
-			{
-				"name": "Essentials 55+",
-				"soc": "TMESNTL55",
-				"prices": [
-					45, 65
-				],
-				"max": 1
-			}, {
-				"name": "Magenta",
-				"soc": "MGNTA",
-				"prices": [
-					75, 130, 155, 180, 205, 230, 255, 280, 310, 340, 370, 400
-				],
-				"max": 0
-			},
-			{
-				"name": "Magenta 55+",
-				"soc": "MG55TI",
-				"prices": [
-					55, 80, 120, 160
-				],
-				"max": 1
-			},
-			{
-				"name": "Magenta First Responder",
-				"soc": "MAGFR",
-				"prices": [
-					60, 90, 105, 120, 135, 150, 175, 200, 225, 250, 275, 300
-				],
-				"max": 2
-			},
-			{
-				"name": "Magenta Military",
-				"soc": "MAGMIL",
-				"prices": [
-					60, 90, 105, 120, 135, 150, 175, 200, 225, 250, 275, 300
-				],
-				"max": 3
-			}
-		];
-		let maxes = [{
-				"name": "Magenta MAX",
-				"soc": "MPLSSUB",
-				"prices": [
-					90, 150, 185, 220, 255, 290, 325, 360, 400, 440, 480, 520
-				]
-			},
-			{
-				"name": "Magenta MAX 55+",
-				"soc": "MGP55USL",
-				"prices": [
-					70, 100, 150, 200
-				]
-			},
-			{
-				"name": "Magenta MAX First Responder",
-				"soc": "MPLSFRSL",
-				"prices": [
-					75, 110, 135, 160, 185, 210, 245, 280, 315, 350, 385, 420
-				]
-			},
-			{
-				"name": "Magenta MAX Military",
-				"soc": "MPLSMILSL",
-				"prices": [
-					75, 110, 135, 160, 185, 210, 245, 280, 315, 350, 385, 420
-				]
-			}
-		]
 
-		window.onload = function () {
-			for (let i = 0; i < prices.length; i++) {
-				planSelect.innerHTML += `<option value="${prices[i].soc}">${prices[i].name}</option>`
-			}
-			planChange();
+	<script src="script.js"></script>
 
-		}
-
-		function calc() {
-			let autopay = autopayCheck.checked;
-			let plan = prices[planSelect.selectedIndex];
-			let lines = linesSelect.selectedIndex;
-			let apDiscount = autopay * Math.max(lines);
-
-			let current = plan.prices[lines] - (autopay ? apDiscount : 0);
-			let currentTotal = plan.prices[lines] + 55 - (autopay ? apDiscount + 5 : 0);
-
-			let max = maxes[plan.max].prices[lines] - (autopay ? 5 * (lines + 1) : 0);
-			let maxTotal = maxes[plan.max].prices[lines] + 35 - 5 * (lines + 2);
-
-			currentOut.innerHTML = `Current Plan: $${current}`;
-			currentTotalOut.innerHTML = `Current Plan Plus HINT: $${currentTotal}`;
-
-			maxOut.innerHTML = `MAX Equivalent Plan (${maxes[plan.max].name}): $${max}`
-			maxTotalOut.innerHTML = `MAX Plan Plus HINT w/ autopay: $${maxTotal}`
-
-			let difference = maxTotal - currentTotal;
-			let shouldSwitch = difference <= 0 ? "YES! " : difference <= 10 ? "Maybe. " : "Speak to the value of increasing.";
-			let suffix =
-				"It would be " + (difference < 0 ?
-					`$${Math.abs(difference)} cheaper!` : difference == 0 ?
-					"the same price!" :
-					`$${Math.abs(difference)} more.`);
-
-
-			switchOut.innerHTML = lines >= 1 ? "<h1>Should they switch?</h1><h2>" + shouldSwitch + " " + suffix + "</h2>" :
-				"<h1>This promotion requires minimum of two lines</h1>";
-
-			notice.innerHTML = autopay ? "" : "Notice: MAX discount includes adding autopay.";
-
-
-		}
-
-		function updateLines() {
-			let plan = prices[planSelect.selectedIndex];
-			linesSelect.innerHTML = ""
-			for (i = 1; i <= plan.prices.length; i++) {
-				linesSelect.innerHTML += `<option value="${i}">${i}</option>`
-			}
-		}
-
-		function planChange() {
-			updateLines();
-			calc();
-		}
-	</script>
 </head>
 
 <body>
+	<main>
+		<div class="container py-4">
 
-	<div class="container"
-		style="margin-left:auto; margin-right:auto; width:auto; padding:10%; height:100%; background-color:rgb(236,0,117);">
+			<header class="pb-3 mb-4 border-bottom">
+				<a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+					<span class="fs-4">habjo</span>
+				</a>
+			</header>
+			<div class="container rounded-3"
+				style="margin-left:auto; margin-right:auto; width:auto; padding:10%; background-color:rgb(236,0,117);">
 
-		<div class="container" style="color:white">
-			<div class="row">
-				<div class="col">
-					<label class="form-check-label" for="autopayCheck">Enrolled in AutoPay?</label>
-					<input class="form-check-input" type="checkbox" value="" id="autopayCheck" onchange="calc()">
-				</div>
+				<div class="container" style="color:white">
+					<div class="row">
+						<div class="col">
+							<label class="form-check-label" for="autopayCheck">Enrolled in AutoPay?</label>
+							<input class="form-check-input" type="checkbox" value="" id="autopayCheck"
+								onchange="calc()">
+						</div>
 
-				<div class="col">
-					<label class="form-select-label" for="planSelect">Plan Name</label>
-					<select class="form-select" id="planSelect" onchange="planChange()"></select>
-				</div>
-				<div class="col">
-					<label class="form-select-label" for="linesSelect">Number Of Lines</label>
-					<select class="form-select" id="linesSelect" onchange="calc()"></select>
-				</div>
-			</div>
-			<hr>
-			<div class="row" id="switchOut">
-				<h1>Should they switch?</h1>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col">
-					<p id="currentOut">Current Plan</p>
-				</div>
-				<div class="col">
-					<p id="currentTotalOut">Current Plan plus HINT</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<p id="maxOut">MAX Equivalent Plan</p>
-				</div>
-				<div class="col">
-					<p id="maxTotalOut">MAX Plan plus HINT</p>
-				</div>
-			</div>
+						<div class="col">
+							<label class="form-select-label" for="planSelect">Plan Name</label>
+							<select class="form-select" id="planSelect" onchange="planChange()"></select>
+						</div>
+						<div class="col">
+							<label class="form-select-label" for="linesSelect">Number Of Lines</label>
+							<select class="form-select" id="linesSelect" onchange="calc()"></select>
+						</div>
+					</div>
+					<hr>
+					<div class="row" id="switchOut">
+						<h1>Should they switch?</h1>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col">
+							<p id="currentOut">Current Plan</p>
+						</div>
+						<div class="col">
+							<p id="currentTotalOut">Current Plan plus HINT</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<p id="maxOut">MAX Equivalent Plan</p>
+						</div>
+						<div class="col">
+							<p id="maxTotalOut">MAX Plan plus HINT</p>
+						</div>
+					</div>
 
-			<div class="row">
-				<p id="notice"></p>
+					<div class="row">
+						<p id="notice"></p>
+					</div>
+				</div>
 			</div>
+			<footer class="pt-3 mt-4 text-muted border-top">
+				&copy; 2022
+			</footer>
 		</div>
-	</div>
+	</main>
 </body>
 
 </html>

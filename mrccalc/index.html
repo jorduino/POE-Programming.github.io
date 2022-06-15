@@ -1,105 +1,176 @@
 <html>
-	<head>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-		<script>
-			function calc() {
-			let plan=Number(planlbl.value);
-			let eip=Number(eiplbl.value);
-			let discount=Number(discountlbl.value);
-			let current=Number(currentlbl.value);
-			let late=Number(latelbl.value);
-			let rest=Number(restlbl.value);
-			let promo=Number(promolbl.value);
-			let ota=Number(otalbl.value);
-			let intl=Number(intllbl.value);
-			let midcycle=Number(midcyclelbl.value);
-			
-			let mrc=plan+eip;
-			let normal = mrc-discount;
-			let increase = current-normal;
-			let otc = late+rest+promo-ota+intl+midcycle;
-			
-			mrcout.innerHTML="$"+mrc;
-			normalout.innerHTML="$"+normal;
-			increaseout.innerHTML="$"+increase;
-			otcout.innerHTML="One time charges? $"+otc
-			}
-			
-			function clr(){
-			   planlbl.value = "";
-			   eiplbl.value = "";
-			   discountlbl.value = "";
-			   currentlbl.value = "";
-			   latelbl.value = "";
-			   promolbl.value = "";
-			   otalbl.value = "";
-			   intllbl.value = "";
-			   midcyclelbl.value = "";
-			   calc()
-			}
-			
-		</script>
-	</head>
-	<body>
-		<div class="container" style="margin-left:auto; margin-right:auto; width:auto; padding:10%; height:100%; background-color:rgb(236,0,117);">
-			<table style="width:100%">
-				<tr>
-					<td><p>Plan and Features =</p></td>
-					<td><input type="text" id="planlbl" onchange="calc()"/></td>
-					<td><p>Current Bill</p></td>
-					<td><input type="text" id="currentlbl" onchange="calc()"/></td>
-				</tr>
-				<tr>
-					<td><p>EIP Amount =</p></td>
-					<td><input type="text" id="eiplbl" onchange="calc()"/></td>
-					<td><p>Bill increase amount =</p></td>
-					<td><p id="increaseout" >$0</p></td>
-				</tr>
-				<tr>
-					<td><p>MRC=</p></td>
-					<td><span id="mrcout">$0</span></td>
-					<td><h5 id="otcout">One time charges? $0</h5></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><p>Discounts and Promos =</p></td>
-					<td><input type="text" id="discountlbl" onchange="calc()"/></td>
-					<td><p>Late Fee?</p></td>
-					<td><input type="text" id="latelbl" onchange="calc()"/></td>
-				</tr>
-				<tr>
-					<td><p>Normal Bill Charges =</p></td>
-					<td><p id="normalout">$0</p></td>
-					<td><p>Restore Fee?</p></td>
-					<td><input type="text" id="restlbl" onchange="calc()"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td><p>Missing Promos?</p></td>
-					<td><input type="text" id="promolbl" onchange="calc()"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td><p>One Time Adjustments?</p></td>
-					<td><input type="text" id="otalbl" onchange="calc()"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><button onclick="clr()">clear</button></td>
-					<td><p>International/411 Calls?</p></td>
-					<td><input type="text" id="intllbl" onchange="calc()"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td><p>Plan Changes?</p></td>
-					<td><input type="text" id="midcyclelbl" onchange="calc()"/></td>
-				</tr>
-			</table>
-		</div>
-	</body>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>habjo - MRC Calculator</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <div class="container py-4">
+
+            <header class="pb-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                    <span class="fs-4">habjo</span>
+                </a>
+            </header>
+            <div class="container py-4 rounded-3" style="background-color:rgb(236,0,117);">
+
+                <div class="container" style="color:white">
+                    <div class="row">
+
+                        <div class="col">
+                            <label class="form-control-label" for="planIn">
+                                Plan and Features
+                            </label>
+                            <input type="text" class="form-control" id="planIn" onchange="calc()"></select>
+                        </div>
+
+                        <div class="col">
+                            <p id="mrcOut">MRC: $0</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col">
+                            <label class="form-control-label" for="eipIn">
+                                EIP Amount
+                            </label>
+                            <input type="text" class="form-control" id="eipIn" onchange="calc()"></select>
+                        </div>
+                        <div class="col"></div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col">
+                            <label class="form-control-label" for="discountIn">
+                                Discounts and Promos
+                            </label>
+                            <input type="text" class="form-control" id="discountIn" onchange="calc()"></select>
+                        </div>
+
+                        <div class="col">
+                            <p id="normalOut">Normal Bill Charges: $0</p>
+                        </div>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="row">
+
+                        <div class="col">
+                            <label class="form-control-label" for="currentIn">
+                                Current Bill
+                            </label>
+                            <input type="text" class="form-control" id="currentIn" onchange="calc()"></select>
+                        </div>
+
+                        <div class="col">
+                            <p id="increaseOut">Bill Increase Amount: $0</p>
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <div class="p-5 bg-light rounded-3 border text-dark">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label class="form-control-label" for="lateIn">
+                                                Late Fees
+                                            </label>
+                                            <input type="text" class="form-control" id="lateIn"
+                                                onchange="calc()"></select>
+                                        </div>
+
+                                        <div class="col">
+                                            <label class="form-control-label" for="restIn">
+                                                Restore Fees
+                                            </label>
+                                            <input type="text" class="form-control" id="restIn"
+                                                onchange="calc()"></select>
+                                        </div>
+
+                                        <div class="col">
+                                            <label class="form-control-label" for="promoIn">
+                                                Missing Promos
+                                            </label>
+                                            <input type="text" class="form-control" id="promoIn"
+                                                onchange="calc()"></select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label class="form-control-label" for="otaIn">
+                                                One-Time Credits
+                                            </label>
+                                            <input type="text" class="form-control" id="otaIn"
+                                                onchange="calc()"></select>
+                                        </div>
+
+                                        <div class="col">
+                                            <label class="form-control-label" for="intlIn">
+                                                International Calls
+                                            </label>
+                                            <input type="text" class="form-control" id="intlIn"
+                                                onchange="calc()"></select>
+                                        </div>
+
+                                        <div class="col">
+                                            <label class="form-control-label" for="midcycleIn">
+                                                Plan Changes
+                                            </label>
+                                            <input type="text" class="form-control" id="midcycleIn"
+                                                onchange="calc()"></select>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col text-center">
+
+                                    <h1 class="display-5" id="otcOut">One Time Charges:<br>$0</h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer class="pt-3 mt-4 text-muted border-top">
+                &copy; 2022
+            </footer>
+        </div>
+    </main>
+</body>
+
 </html>
