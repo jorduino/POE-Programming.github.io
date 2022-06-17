@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>habjo - Hintmax</title>
+	<title>habjo - Promo Trade Calculator</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -27,51 +27,73 @@
 					<span class="fs-4">habjo</span>
 				</a>
 			</header>
-			<div class="container rounded-3"
-				style="margin-left:auto; margin-right:auto; width:auto; padding:10%; background-color:rgb(236,0,117);">
+			<div class="container py-4 rounded-3" style="background-color:rgb(236,0,117);">
 
 				<div class="container" style="color:white">
 					<div class="row">
+
+
 						<div class="col">
-							<label class="form-check-label" for="autopayCheck">Enrolled in AutoPay?</label>
-							<input class="form-check-input" type="checkbox" value="" id="autopayCheck"
-								onchange="calc()">
+							<label class="form-control-label" for="priceIn">
+								Price of new device
+							</label>
+							<input type="text" class="form-control" id="priceIn" onchange="calc()">
 						</div>
 
 						<div class="col">
-							<label class="form-select-label" for="planSelect">Plan Name</label>
-							<select class="form-select" id="planSelect" onchange="planChange()"></select>
+							<label class="form-control-label" for="tradeIn">
+								Trade-in value
+							</label>
+							<input type="text" class="form-control" id="tradeIn" onchange="calc()">
 						</div>
-						<div class="col">
-							<label class="form-select-label" for="linesSelect">Number Of Lines</label>
-							<select class="form-select" id="linesSelect" onchange="calc()"></select>
-						</div>
-					</div>
-					<hr>
-					<h1 id="switchOut">Should they switch?</h1>
-					<hr>
-					<div class="row">
-						<div class="col">
-							<p id="currentOut">Current Plan</p>
-						</div>
-						<div class="col">
-							<p id="currentTotalOut">Current Plan plus HINT</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<p id="maxOut">MAX Equivalent Plan</p>
-						</div>
-						<div class="col">
-							<p id="maxTotalOut">MAX Plan plus HINT</p>
-						</div>
+
+
 					</div>
 
 					<div class="row">
-						<p id="notice"></p>
+
+
+						<div class="col">
+							<label class="form-select-label" for="periodIn">
+								Installment period
+							</label>
+							<select type="text" class="form-select" id="periodIn" onchange="calc()">
+								<option>24 months</option>
+								<option>30 months</option>
+							</select>
+						</div>
+
+						<div class="col">
+							<label class="form-control-label" for="promoIn">
+								Amount off from promo
+							</label>
+							<input type="text" class="form-control" id="promoIn" onchange="calc()">
+						</div>
+
+
+
 					</div>
+
+					<hr>
+
+					<div class="row">
+
+
+						<div class="col">
+							<p id="upfrontOut">Customer's up front credit to the bill: $0</p>
+						</div>
+
+						<div class="col">
+							<p id="monthlyOut">Customer's monthly EIP payment: $0</p>
+						</div>
+
+
+					</div>
+
 				</div>
 			</div>
+
+
 			<footer class="pt-3 mt-4 text-muted border-top">
 				&copy; 2022
 			</footer>

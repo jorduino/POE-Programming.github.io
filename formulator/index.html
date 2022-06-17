@@ -3,254 +3,254 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>habjo - Formulator</title>
+	<title>habjo - Formulator</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+	</script>
 
-    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
-    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
-        integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g=="
-        crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
-        integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"
-        integrity="sha512-EbdJQSugx0nVWrtyK3JdQQ/03mS3Q1UiAhRtErbwl1YL/+e2hZdlIcSURxxh7WXHTzn83sjlh2rysACoJGfb6g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.min.js"
-        integrity="sha512-W/mRQs9ZSFpF14X/4aRgQss7+HRsVXsph+Y6DGLeqIqK8IpO+rQz0ISUEXkTeeKF7tivoGv+Ru7SpocS/1qahg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
+		integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g=="
+		crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
+		integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"
+		integrity="sha512-EbdJQSugx0nVWrtyK3JdQQ/03mS3Q1UiAhRtErbwl1YL/+e2hZdlIcSURxxh7WXHTzn83sjlh2rysACoJGfb6g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.min.js"
+		integrity="sha512-W/mRQs9ZSFpF14X/4aRgQss7+HRsVXsph+Y6DGLeqIqK8IpO+rQz0ISUEXkTeeKF7tivoGv+Ru7SpocS/1qahg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
 <body>
-    <main>
-        <div class="container py-4">
+	<main>
+		<div class="container py-4">
 
-            <header class="pb-3 mb-4 border-bottom">
-                <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-                    <span class="fs-4">habjo</span>
-                </a>
-            </header>
+			<header class="pb-3 mb-4 border-bottom">
+				<a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+					<span class="fs-4">habjo</span>
+				</a>
+			</header>
 
-            <input type="file" class="form-control" onchange="fileChanged()" id="filein" multiple>
+			<input type="file" class="form-control" onchange="fileChanged()" id="filein" multiple>
 
-            <input type="button" class="btn btn-primary" value="Select Random Entry" style="display:none;" onclick="randomClicked()"
-                id="randButton">
-            <span id="randomOut"></span>
-            <div id="myGrid" style="height: 700px; width:100%; display: none;" class="ag-theme-balham"></div>
+			<input type="button" class="btn btn-primary" value="Select Random Entry" style="display:none;"
+				onclick="randomClicked()" id="randButton">
+			<span id="randomOut"></span>
+			<div id="myGrid" style="height: 700px; width:100%; display: none;" class="ag-theme-balham"></div>
 
-            <footer class="pt-3 mt-4 text-muted border-top">
-                &copy; 2022
-            </footer>
-        </div>
-    </main>
-    <script type="text/javascript" charset="utf-8">
-        let data = [];
-        const columnDefs = [];
+			<footer class="pt-3 mt-4 text-muted border-top">
+				&copy; 2022
+			</footer>
+		</div>
+	</main>
+	<script type="text/javascript" charset="utf-8">
+		let data = [];
+		const columnDefs = [];
 
-        function CustomDateComponent() {}
+		function CustomDateComponent() {}
 
-        CustomDateComponent.prototype.init = function (params) {
-            this.params = params;
-            this.eGui = document.createElement('div');
-            this.eInput = document.createElement('input');
-            this.eGui.appendChild(this.eInput);
-            jQuery(this.eInput).datetimepicker({
-                mask: true, // '9999/19/39 29:59' - digit is the maximum possible for a cell
-                onChangeDateTime: this.onDateChanged.bind(this)
-            });
-        }
+		CustomDateComponent.prototype.init = function (params) {
+			this.params = params;
+			this.eGui = document.createElement('div');
+			this.eInput = document.createElement('input');
+			this.eGui.appendChild(this.eInput);
+			jQuery(this.eInput).datetimepicker({
+				mask: true, // '9999/19/39 29:59' - digit is the maximum possible for a cell
+				onChangeDateTime: this.onDateChanged.bind(this)
+			});
+		}
 
-        CustomDateComponent.prototype.onDateChanged = function (currentDateTime) {
-            this.date = currentDateTime;
-            this.params.onDateChanged();
-        };
+		CustomDateComponent.prototype.onDateChanged = function (currentDateTime) {
+			this.date = currentDateTime;
+			this.params.onDateChanged();
+		};
 
-        CustomDateComponent.prototype.getGui = function () {
-            return this.eGui;
-        }
+		CustomDateComponent.prototype.getGui = function () {
+			return this.eGui;
+		}
 
-        CustomDateComponent.prototype.getDate = function () {
-            return this.date;
-        }
+		CustomDateComponent.prototype.getDate = function () {
+			return this.date;
+		}
 
-        CustomDateComponent.prototype.setDate = function (date) {
-            // implement this to make it work with floating filters...
+		CustomDateComponent.prototype.setDate = function (date) {
+			// implement this to make it work with floating filters...
 
-        }
+		}
 
-        CustomDateComponent.prototype.destroy = function () {
-            jQuery(this.eInput).datetimepicker('destroy');
-        }
-        const gridOptions = {
+		CustomDateComponent.prototype.destroy = function () {
+			jQuery(this.eInput).datetimepicker('destroy');
+		}
+		const gridOptions = {
 
-            defaultColDef: {
-                sortable: true,
-                filter: 'agTextColumnFilter',
-                resizable: true,
-                editable: false
-            },
-            columnTypes: {
-                dateColumn: {
-                    filter: 'datetimeFilter',
+			defaultColDef: {
+				sortable: true,
+				filter: 'agTextColumnFilter',
+				resizable: true,
+				editable: false
+			},
+			columnTypes: {
+				dateColumn: {
+					filter: 'datetimeFilter',
 
-                    suppressMenu: false
-                }
-            },
-            components: {
-                agDateInput: CustomDateComponent
-            },
-            columnDefs: columnDefs,
-            enableSorting: true,
-            enableFilter: true,
-            pagination: true
-        };
+					suppressMenu: false
+				}
+			},
+			components: {
+				agDateInput: CustomDateComponent
+			},
+			columnDefs: columnDefs,
+			enableSorting: true,
+			enableFilter: true,
+			pagination: true
+		};
 
-        const eGridDiv = document.querySelector('#myGrid');
+		const eGridDiv = document.querySelector('#myGrid');
 
-        function randomClicked() {
-            randomList = []
-            gridOptions.api.forEachNodeAfterFilter(raw => {
-                let row = raw.data
-                let lines = Number(row['SELECT "#" OF LINE(S) ADDED']) || 0;
-                let nbas = Number(row['Next Best Action Offered']) || 0;
-                let npss = Number(row['"#"YES TO NPS" (PG & NPS= 1 ENTRY) ']) || 0;
-                let entries = lines + nbas + npss | 1;
-                for (let i = 0; i < entries; i++) {
-                    randomList.push(row['Slack Full Name'])
-                }
-            })
-            let random = randomList[Math.floor(Math.random() * randomList.length)];
-            randomOut.innerHTML = "Winner: " + random + "!"
-        }
+		function randomClicked() {
+			randomList = []
+			gridOptions.api.forEachNodeAfterFilter(raw => {
+				let row = raw.data
+				let lines = Number(row['SELECT "#" OF LINE(S) ADDED']) || 0;
+				let nbas = Number(row['Next Best Action Offered']) || 0;
+				let npss = Number(row['"#"YES TO NPS" (PG & NPS= 1 ENTRY) ']) || 0;
+				let entries = lines + nbas + npss | 1;
+				for (let i = 0; i < entries; i++) {
+					randomList.push(row['Slack Full Name'])
+				}
+			})
+			let random = randomList[Math.floor(Math.random() * randomList.length)];
+			randomOut.innerHTML = "Winner: " + random + "!"
+		}
 
-        new agGrid.Grid(eGridDiv, gridOptions);
+		new agGrid.Grid(eGridDiv, gridOptions);
 
-        function dynamicallyConfigureColumnsFromKeys(keys) {
-            keys = [...new Set(keys)];
-            const colDefs = gridOptions.api.getColumnDefs();
-            colDefs.length = 0;
-            keys.forEach(key => {
-                if (key == "Submission Timestamp") {
-                    return colDefs.push({
-                        headerName: "Date",
-                        field: "Submission Timestamp",
-                        width: 300,
-                        filter: 'agDateColumnFilter',
-                        filterParams: {
-                            comparator: function (filterLocalDate, cellValue) {
+		function dynamicallyConfigureColumnsFromKeys(keys) {
+			keys = [...new Set(keys)];
+			const colDefs = gridOptions.api.getColumnDefs();
+			colDefs.length = 0;
+			keys.forEach(key => {
+				if (key == "Submission Timestamp") {
+					return colDefs.push({
+						headerName: "Date",
+						field: "Submission Timestamp",
+						width: 300,
+						filter: 'agDateColumnFilter',
+						filterParams: {
+							comparator: function (filterLocalDate, cellValue) {
 
-                                filterLocalDate.setMilliseconds(0);
-                                cellValue.setMilliseconds(0);
-                                let filterBy = filterLocalDate.getTime();
-                                let filterMe = cellValue.getTime();
-                                if (filterBy == filterMe) {
-                                    return 0;
-                                }
+								filterLocalDate.setMilliseconds(0);
+								cellValue.setMilliseconds(0);
+								let filterBy = filterLocalDate.getTime();
+								let filterMe = cellValue.getTime();
+								if (filterBy == filterMe) {
+									return 0;
+								}
 
-                                if (filterMe < filterBy) {
-                                    return -1;
-                                }
+								if (filterMe < filterBy) {
+									return -1;
+								}
 
-                                if (filterMe > filterBy) {
-                                    return 1;
-                                }
-                            }
-                        }
-                    })
-                } else {
-                    return colDefs.push({
-                        field: key
-                    })
-                }
-            });
-            gridOptions.api.setColumnDefs(colDefs);
-        }
+								if (filterMe > filterBy) {
+									return 1;
+								}
+							}
+						}
+					})
+				} else {
+					return colDefs.push({
+						field: key
+					})
+				}
+			});
+			gridOptions.api.setColumnDefs(colDefs);
+		}
 
-        let filterParams = {
-            comparator: function (filterLocalDateAtMidnight, cellValue) {
-                var dateAsString = cellValue;
-                if (dateAsString == null) return -1;
-                var dateParts = dateAsString.split('/');
-                var cellDate = new Date(dateAsString);
+		let filterParams = {
+			comparator: function (filterLocalDateAtMidnight, cellValue) {
+				var dateAsString = cellValue;
+				if (dateAsString == null) return -1;
+				var dateParts = dateAsString.split('/');
+				var cellDate = new Date(dateAsString);
 
-                if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
-                    console.log(filterLocalDateAtMidnight)
-                    return 0;
-                }
+				if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+					console.log(filterLocalDateAtMidnight)
+					return 0;
+				}
 
-                if (cellDate < filterLocalDateAtMidnight) {
-                    console.log(filterLocalDateAtMidnight)
+				if (cellDate < filterLocalDateAtMidnight) {
+					console.log(filterLocalDateAtMidnight)
 
-                    return -1;
-                }
+					return -1;
+				}
 
-                if (cellDate > filterLocalDateAtMidnight) {
-                    console.log(filterLocalDateAtMidnight)
+				if (cellDate > filterLocalDateAtMidnight) {
+					console.log(filterLocalDateAtMidnight)
 
-                    return 1;
-                }
-            },
-            browserDatePicker: true,
-            minValidYear: 2000,
-            maxValidYear: 2021,
-        }
+					return 1;
+				}
+			},
+			browserDatePicker: true,
+			minValidYear: 2000,
+			maxValidYear: 2021,
+		}
 
-        function fileChanged() {
-            randButton.style.display = "";
-            let formFile = filein.files[0];
-            data = [];
-            parseFiles(filein.files)
-        }
-        const parseFiles = files => {
-            filesData = []
-            keys = [];
-            Promise.all([...files].map(file => new Promise((resolve, reject) => Papa.parse(file, {
-                    header: true,
-                    complete: resolve, // Resolve each promise
-                    error: reject
-                }))))
-                .then(results => {
-                    results.forEach((result, index) => {
-                        filesData = filesData.concat(result.data)
-                        keys = keys.concat(Object.keys(result.data[0]))
-                    });
-                    completeFunction(filesData,
-                        keys
-                    ); // now since .then() excutes after all promises are resolved, filesData contains all the parsed files.
-                })
-                .catch((err) => console.log('Something went wrong:', err))
-        }
+		function fileChanged() {
+			randButton.style.display = "";
+			let formFile = filein.files[0];
+			data = [];
+			parseFiles(filein.files)
+		}
+		const parseFiles = files => {
+			filesData = []
+			keys = [];
+			Promise.all([...files].map(file => new Promise((resolve, reject) => Papa.parse(file, {
+					header: true,
+					complete: resolve, // Resolve each promise
+					error: reject
+				}))))
+				.then(results => {
+					results.forEach((result, index) => {
+						filesData = filesData.concat(result.data)
+						keys = keys.concat(Object.keys(result.data[0]))
+					});
+					completeFunction(filesData,
+						keys
+					); // now since .then() excutes after all promises are resolved, filesData contains all the parsed files.
+				})
+				.catch((err) => console.log('Something went wrong:', err))
+		}
 
-        function stepFunction(row) {
-            data.push(row.data);
-        }
+		function stepFunction(row) {
+			data.push(row.data);
+		}
 
-        function completeFunction(data, keys) {
-            for (row of data) {
-                row["Submission Timestamp"] = new Date(row["Submission Timestamp"])
-            }
-            myGrid.style.display = "";
+		function completeFunction(data, keys) {
+			for (row of data) {
+				row["Submission Timestamp"] = new Date(row["Submission Timestamp"])
+			}
+			myGrid.style.display = "";
 
-            dynamicallyConfigureColumnsFromKeys(keys)
-            gridOptions.api.setRowData(data);
+			dynamicallyConfigureColumnsFromKeys(keys)
+			gridOptions.api.setRowData(data);
 
-        }
-    </script>
+		}
+	</script>
 </body>
 
 </html>

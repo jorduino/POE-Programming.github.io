@@ -5,28 +5,28 @@
 - [Helpful hints](#helpful-hints)
   - [Table of Contents](#table-of-contents)
   - [Basic Programming](#basic-programming)
-    - [Problem 1](#problem-1)
-    - [Problem 2](#problem-2)
-    - [Problem 3](#problem-3)
-    - [Problem 4](#problem-4)
+	- [Problem 1](#problem-1)
+	- [Problem 2](#problem-2)
+	- [Problem 3](#problem-3)
+	- [Problem 4](#problem-4)
   - [While Loops and Timers](#while-loops-and-timers)
-    - [Problem 5](#problem-5)
-    - [Problem 6](#problem-6)
-    - [Problem 7](#problem-7)
-    - [Problem 8](#problem-8)
-    - [Problem 9](#problem-9)
+	- [Problem 5](#problem-5)
+	- [Problem 6](#problem-6)
+	- [Problem 7](#problem-7)
+	- [Problem 8](#problem-8)
+	- [Problem 9](#problem-9)
   - [If-Else Statements](#if-else-statements)
-    - [Problem 10](#problem-10)
-    - [Problem 11](#problem-11)
-    - [Problem 12](#problem-12)
-    - [Problem 13](#problem-13)
-    - [Problem 14](#problem-14)
+	- [Problem 10](#problem-10)
+	- [Problem 11](#problem-11)
+	- [Problem 12](#problem-12)
+	- [Problem 13](#problem-13)
+	- [Problem 14](#problem-14)
   - [Variables and Functions](#variables-and-functions)
-    - [Problem 15](#problem-15)
-    - [Problem 16](#problem-16)
-    - [Problem 17](#problem-17)
+	- [Problem 15](#problem-15)
+	- [Problem 16](#problem-16)
+	- [Problem 17](#problem-17)
   - [Putting it all together](#putting-it-all-together)
-    - [Problem 18](#problem-18)
+	- [Problem 18](#problem-18)
 
 ## Basic Programming
 
@@ -70,7 +70,7 @@ Use the following code snippet to help you write your program
 ...
 while(true)
 {
-    //code that will loop forever
+	//code that will loop forever
 }
 ...
 ```
@@ -86,7 +86,7 @@ To use a timer, see the code snippet below
 clearTimer(T1);
 while(time1[T1]<20000)//until timer reaches 20000 ms or 20 seconds
 {
-    //code that will loop for 20 seconds
+	//code that will loop for 20 seconds
 }
 ...
 ```
@@ -109,7 +109,7 @@ Use a while loop as shown below
 ...
 while(sensorValue(limitSwitch)==0)
 {
-    //code in here only runs if the limit switch is not pressed
+	//code in here only runs if the limit switch is not pressed
 }
 ...
 ```
@@ -132,9 +132,9 @@ This code snippet shows how an if-else statement works
 ...
 if(SensorValue(sensor-name)<value)
 {
-    //code in here runs if the sensor's value is greater than the one given
+	//code in here runs if the sensor's value is greater than the one given
 }else{
-    //code in here runs if the sensor's value is NOT greater than the one given
+	//code in here runs if the sensor's value is NOT greater than the one given
 }
 ...
 ```
@@ -150,26 +150,26 @@ For this problem, you will need two different if-else statements as shown below
 ...
 if(condition1)//i.e. bump switch is pressed
 {
-    //code that runs if the condition is met
+	//code that runs if the condition is met
 
-    //i.e. start right motor
+	//i.e. start right motor
 }else
 {
-    //code that runs if its NOT met
+	//code that runs if its NOT met
 
-    //i.e. stop right motor
+	//i.e. stop right motor
 }
 
 if(condition2)//i.e. limit switch is pressed
 {
-    //code that runs if the condition is met
+	//code that runs if the condition is met
 
-    //i.e. start left motor
+	//i.e. start left motor
 }else
 {
-    //code that runs if its NOT met
+	//code that runs if its NOT met
 
-    //i.e. stop left motor
+	//i.e. stop left motor
 }
 ...
 ```
@@ -184,9 +184,9 @@ Similar to problem 10 but with light sensor and flashlight instead of line follo
 ...
 if(SensorValue(sensor-name)>value)
 {
-    //code in here runs if the sensor's value is greater than the one given
+	//code in here runs if the sensor's value is greater than the one given
 }else{
-    //code in here runs if the sensor's value is NOT greater than the one given
+	//code in here runs if the sensor's value is NOT greater than the one given
 }
 ...
 ```
@@ -203,22 +203,22 @@ For this problem, use a nested if statement
 ...
 if(condition1)//i.e. limit switch is pressed
 {
-    if(condition2)//i.e. light sensor is covered
-    {
-        //code in here only runs if both condtitions are met
+	if(condition2)//i.e. light sensor is covered
+	{
+		//code in here only runs if both condtitions are met
 
-        //i.e. turn servo one way
-    }else{
-        //code in here runs if only the first condition is met
+		//i.e. turn servo one way
+	}else{
+		//code in here runs if only the first condition is met
 
-        //i.e.turn servo the other way
-    }
+		//i.e.turn servo the other way
+	}
 }else
 {
-    /*code in here runs if the first condition
-    isn't met (regardless of the second)*/
+	/*code in here runs if the first condition
+	isn't met (regardless of the second)*/
 
-    //i.e. turn the servo to the home position
+	//i.e. turn the servo to the home position
 }
 ...
 ```
@@ -241,7 +241,7 @@ The code snippet below shows how to use a variable and a for loop
 ...
 for(int variable = 0; variable < 5; variable++)
 {
-    //code you want to run 5 times
+	//code you want to run 5 times
 }
 ...
 ```
@@ -260,11 +260,11 @@ This code snippet shows how functions work
 ...
 void functionName()
 {
-    //code that the function will run
+	//code that the function will run
 }
 ...
 task main(){
-    functionName(); //this line runs the function
+	functionName(); //this line runs the function
 }
 ...
 ```
@@ -279,14 +279,14 @@ Combines problems 15 and 16. An example is shown below
 ...
 void functionName()
 {
-    //code inside the function
+	//code inside the function
 }
 ...
 task main(){
-    for(int variable = 0; variable < 5; variable++)
-    {
-        functionName();
-    }
+	for(int variable = 0; variable < 5; variable++)
+	{
+		functionName();
+	}
 }
 ```
 

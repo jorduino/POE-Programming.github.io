@@ -3,39 +3,39 @@
 ## Table of contents
 
 - [PLTW Programming](#pltw-programming)
-  - [Table of contents](#table-of-contents)
-  - [Motors and Sensor Setup](#motors-and-sensor-setup)
-  - [Basic Programming](#basic-programming)
-    - [Problem 1](#problem-1)
-    - [Problem 2](#problem-2)
-    - [Problem 3](#problem-3)
-    - [Problem 4](#problem-4)
-  - [While Loops and Timers](#while-loops-and-timers)
-    - [Problem 5](#problem-5)
-    - [Problem 6](#problem-6)
-    - [Problem 7](#problem-7)
-    - [Problem 8](#problem-8)
-    - [Problem 9](#problem-9)
-  - [If-Else Statements](#if-else-statements)
-    - [Problem 10](#problem-10)
-    - [Problem 11](#problem-11)
-    - [Problem 12](#problem-12)
-    - [Problem 13](#problem-13)
-    - [Problem 14](#problem-14)
-  - [Variables and Functions](#variables-and-functions)
-    - [Problem 15](#problem-15)
-    - [Problem 16](#problem-16)
-    - [Problem 17](#problem-17)
-  - [Putting it all Together](#putting-it-all-together)
-    - [Problem 18](#problem-18)
+	- [Table of contents](#table-of-contents)
+	- [Motors and Sensor Setup](#motors-and-sensor-setup)
+	- [Basic Programming](#basic-programming)
+		- [Problem 1](#problem-1)
+		- [Problem 2](#problem-2)
+		- [Problem 3](#problem-3)
+		- [Problem 4](#problem-4)
+	- [While Loops and Timers](#while-loops-and-timers)
+		- [Problem 5](#problem-5)
+		- [Problem 6](#problem-6)
+		- [Problem 7](#problem-7)
+		- [Problem 8](#problem-8)
+		- [Problem 9](#problem-9)
+	- [If-Else Statements](#if-else-statements)
+		- [Problem 10](#problem-10)
+		- [Problem 11](#problem-11)
+		- [Problem 12](#problem-12)
+		- [Problem 13](#problem-13)
+		- [Problem 14](#problem-14)
+	- [Variables and Functions](#variables-and-functions)
+		- [Problem 15](#problem-15)
+		- [Problem 16](#problem-16)
+		- [Problem 17](#problem-17)
+	- [Putting it all Together](#putting-it-all-together)
+		- [Problem 18](#problem-18)
 
 ## Motors and Sensor Setup
-  
+	
 - Make sure the cables are plugged in according to the diagram below
 
 <details>
-    <summary>Wiring diagram</summary>
-    <img src="wiring-diagram.png" alt="wiring diagram"></img>
+		<summary>Wiring diagram</summary>
+		<img src="wiring-diagram.png" alt="wiring diagram"></img>
 </details>
 
 - In robotc, at the top click on `Robot` > `Motors and Sensors Setup`
@@ -88,9 +88,9 @@ ___
 ### Problem 5
 
 - Forever:
-  - The left motor starts at half speed CW for 1 second then turns off
-  - The right motor starts at half speed CW for 1 second then turns off
-  - The LED turns on for 2 seconds then turns off
+	- The left motor starts at half speed CW for 1 second then turns off
+	- The right motor starts at half speed CW for 1 second then turns off
+	- The LED turns on for 2 seconds then turns off
 
 ___
 
@@ -103,8 +103,8 @@ ___
 ### Problem 7
 
 - Forever:
-  - Wait until the __light sensor__ is __blocked__ then turn __on__ the flashlight
-  - Wait until the __light sensor__ is __not blocked__ then turn __off__ the flashlight
+	- Wait until the __light sensor__ is __blocked__ then turn __on__ the flashlight
+	- Wait until the __light sensor__ is __not blocked__ then turn __off__ the flashlight
 
 ___
 
@@ -121,8 +121,8 @@ ___
 - LED turns on
 - Wait 1 second
 - For 15 seconds:
-  - The __left motor__ starts at half speed CW until __the bump switch is pressed__ then turns off
-  - The __right motor__ starts at half speed CW until __the limit switch is pressed__ then turns off
+	- The __left motor__ starts at half speed CW until __the bump switch is pressed__ then turns off
+	- The __right motor__ starts at half speed CW until __the limit switch is pressed__ then turns off
 - The LED turns __off__ for 1 second
 - The LED turns back __on__ for 1 second and then turns off
 
@@ -145,16 +145,16 @@ ___
 ### Problem 12
 
 - Forever:
-  - If the light sensor is covered, the flashlight turns on
-  - If the light sensor is not covered, the flashlight turns off
+	- If the light sensor is covered, the flashlight turns on
+	- If the light sensor is not covered, the flashlight turns off
 
 >Looks similar to 7, but this one uses if statements
 
 ### Problem 13
 
 - Forever:
-  - If the limit switch is pressed, the servo motor turns either left or right _(127 or -127)_ depending on if the light sensor is covered
-  - If the limit switch is not pressed, the servo motor moves to the home position
+	- If the limit switch is pressed, the servo motor turns either left or right _(127 or -127)_ depending on if the light sensor is covered
+	- If the limit switch is not pressed, the servo motor moves to the home position
 
 ### Problem 14
 
@@ -187,11 +187,11 @@ Same as problem 1, but use a function named `motorloop` and a variable named `lo
 - Wait until the limit switch is pressed
 - LED turns on
 - Loop 5 times:
-  - If light sensor is covered:
-    - Left motor turns CW at half speed for 1 second then stops
-    - Servo motor turns to 60 degrees to the right, stays for 2 seconds, then moves back to home position
-  - If light sensor is not covered:
-    - Right motor turns CW at half speed for 2 seconds then stops
-    - Servo motor turns to 60 degrees to the left, stays for 2 seconds, then moves back to home position
+	- If light sensor is covered:
+		- Left motor turns CW at half speed for 1 second then stops
+		- Servo motor turns to 60 degrees to the right, stays for 2 seconds, then moves back to home position
+	- If light sensor is not covered:
+		- Right motor turns CW at half speed for 2 seconds then stops
+		- Servo motor turns to 60 degrees to the left, stays for 2 seconds, then moves back to home position
 
 [Top](#pltw-programming)
