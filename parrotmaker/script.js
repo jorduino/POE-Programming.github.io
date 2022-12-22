@@ -34,10 +34,10 @@ function Main() {
 
 	for (let i = 0; i < input.length; i++) {
 		for (let j = 0; j < input[i].length; j++) {
-			let o = invert.checked?8-(output[i][j]%8):(output[i][j]%8)+1;
+			let o = invert.checked ? 8 - (output[i][j] % 8) : (output[i][j] % 8) + 1;
 			console.log(o)
 			output[i][j] = o > 0 && o < 8 ? ":parrotwave" + o + ":" : ":parrotsleep:"
 		}
 	}
-inarea.value='.\n'+output.map(e => e.join('\t')).join('\n');
+	inarea.value = '.\n' + output.map(e => e.join('\t')).join('\n');
 }
